@@ -1,3 +1,5 @@
+import FriendsList from "./FriendsList";
+
 const initialFriends = [
   {
     id: 118836,
@@ -21,8 +23,10 @@ const initialFriends = [
 
 function App() {
   return (
-    <div className="App">
-      <h2>Eat and Split</h2>
+    <div className="app">
+      <div className="sidebar">
+        <FriendsList data={initialFriends} />
+      </div>
     </div>
   );
 }
