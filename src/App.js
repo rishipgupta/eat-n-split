@@ -28,16 +28,21 @@ const initialFriends = [
 
 function App() {
   const [addFriend, setAddFriend] = useState(false);
+  const [friends, setFriends] = useState(initialFriends);
 
   const handleSetAddFriend = () => {
     setAddFriend(show => !show)
   }
 
+  const handleSetFriends = (friend) => {
+    setFriends(friends => [...friends, friend]);
+  }
+
   return (
     <div className="app">
       <div className="sidebar">
-        <FriendsList data={initialFriends} />
-        {addFriend && <FormAddFriend />}
+        <FriendsList data={friends} />
+        {addFriend && <FormAddFriend onAddFriend={handleSetFriends} />}
 
         <Button onClick={handleSetAddFriend}>{addFriend === true ? "Close" : "Add Friend"}</Button>
       </div>
