@@ -36,6 +36,7 @@ function App() {
 
   const handleSetFriends = (friend) => {
     setFriends(friends => [...friends, friend]);
+    setAddFriend(!addFriend)
   }
 
   return (
