@@ -1,7 +1,11 @@
 import React from 'react'
 import Button from './Button'
 
-const Friend = ({ friend }) => {
+const Friend = ({ friend, handleSelectedFriend, selectedFriend }) => {
+  // let isSelected;
+  let isSelected = selectedFriend?.id === friend.id;
+  // if (selectedFriend) {
+  // }
 
   return (
     <>
@@ -15,7 +19,7 @@ const Friend = ({ friend }) => {
         {friend.balance > 0 && <p className='green'> Your {friend.name} owes you {friend.balance}$</p>}
 
         {friend.balance === 0 && <p> You and {friend.name} are even</p>}
-        <Button>Select</Button>
+        <Button onClick={() => handleSelectedFriend(friend)}>{isSelected ? "Close" : "Select"}</Button>
       </li>
     </>
   )
