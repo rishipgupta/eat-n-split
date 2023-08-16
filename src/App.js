@@ -44,12 +44,15 @@ function App() {
   }
 
   const handleSelectedFriend = (friend) => {
-    if (selectedFriend?.id === friend.id) {
-      setSelectedFriend(null);
-    } else {
-      setSelectedFriend(friend);
-    }
+    // if (selectedFriend?.id === friend.id) {
+    //   setSelectedFriend(null);
+    // } else {
+    //   setSelectedFriend(friend);
+    // }
     // setIsSelected(!isSelected);
+
+    // modifying based on current selection and using optional chaining to see if the value is null
+    setSelectedFriend(cur => cur?.id === friend.id ? null : friend)
   }
   return (
     <div className="app">
