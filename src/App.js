@@ -54,6 +54,7 @@ function App() {
     // modifying based on current selection and using optional chaining to see if the value is null
     setSelectedFriend(cur => cur?.id === friend.id ? null : friend);
     setAddFriend(false);
+
   }
   return (
     <div className="app">
