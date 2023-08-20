@@ -15,6 +15,9 @@ const FormSplitBill = ({ selectedFriend, onSplitBill }) => {
     e.preventDefault();
     if (!billAmount || !yourExpense) return;
     onSplitBill(whoIsPaying === 'user' ? friendsExpense : -yourExpense)
+    setBillAmount("");
+    setYourExpense("");
+    setWhoIsPaying("user");
   }
   return (
     <form className='form-split-bill' onSubmit={handleSubmit}>
