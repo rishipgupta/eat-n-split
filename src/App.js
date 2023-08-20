@@ -54,7 +54,11 @@ function App() {
     // modifying based on current selection and using optional chaining to see if the value is null
     setSelectedFriend(cur => cur?.id === friend.id ? null : friend);
     setAddFriend(false);
+  }
 
+  const handleSplitBill = (value) => {
+    console.log(value);
+    setFriends(friends => friends.map(friend => friend.id === selectedFriend.id ? { ...friend, balance: friend.balance + value } : friend))
   }
   return (
     <div className="app">
@@ -64,7 +68,7 @@ function App() {
 
         <Button onClick={handleSetAddFriend}>{addFriend === true ? "Close" : "Add Friend"}</Button>
       </div>
-      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} />}
+      {selectedFriend && <FormSplitBill selectedFriend={selectedFriend} onSplitBill={handleSplitBill} />}
     </div>
   );
 }
